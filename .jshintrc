@@ -19,6 +19,7 @@
   "globals": {
     "Vue": false,
     "utils": true,
+    "globals": true,
     "app": true
   }
 }

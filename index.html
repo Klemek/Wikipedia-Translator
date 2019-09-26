@@ -10,7 +10,18 @@
 </head>
 <body>
 <main id="app">
-    <h2>{{sample}}</h2>
+    <h2>Wikipedia Translator</h2>
+    <div id="query">
+        <input v-model="query" placeholder="Search something..." v-on:keyup.enter="doQuery"/>
+        <select v-model="lang">
+            <option v-for="l in globals.langs" v-bind:value="l.v">{{l.n}}</option>
+        </select>
+        <button v-on:click="doQuery">Go</button>
+    </div>
+    <div v-if="res">
+        <h2><a v-bind:href="res.url" target="_blank">{{res.title}}</a></h2>
+        <h3 v-if="res.extract">{{res.extract}}</h3>
+    </div>
 </main>
 </body>
 </html>
